@@ -1,8 +1,6 @@
 #So to summarize, any dp problem (once we figure out it is dp problem),
 # the rows represent the elements and columns are the selection criteria (cumulative of elements) for the elements.
 # And to figure out if it is dp problem:
-# 1)it would be of "selection" nature (0/1) and
-# 2) has a solution to nth(optimal/maximum/minimum/Largest) item if it has solution to n-1th item.
 
 
 # 1.(A) 0/1 Knapsack/backpack problem
@@ -15,7 +13,7 @@
 
 def elements_with_max_value(weight,value, capacity):
     N = len(weight)
-    dp = [[0 for x in range(capacity + 1)] for x in range(N )]
+    dp = [[0 for x in range(capacity + 1)] for x in range(N)]
     columns= capacity +1
 
     for row in range(N):

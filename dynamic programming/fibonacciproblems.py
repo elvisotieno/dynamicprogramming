@@ -37,8 +37,8 @@ def fibonacci(n):
         return 0
     else:
         return fibonacci(n-1) + fibonacci(n-2)
-
-print(fibonacci(100))
+n=4
+print(f'fib of {n} is {fibonacci(4)}')
 
 
 # using dynamic programming

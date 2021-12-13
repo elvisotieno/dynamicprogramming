@@ -26,7 +26,7 @@ class Node:
                 self.data = data
 
     def contains_given_item(self,item):
-        if item == data:
+        if self.data == item:
             return True
         elif item < self.data:
             if self.left is None:
@@ -46,9 +46,23 @@ class Node:
         if self.right:
             self.right.print_tree()
 
+    # Inorder traversal
+    # Left -> Root -> Right
+
+    def inorder_traversal(self, root):
+        res = []
+        if root:
+            res = self.inorder_traversal(root.left)
+            res.append(root.data)
+            res = res + self.inorder_traversal(root.right)
+        return res
+
 root = Node(12)
 root.insert(7)
 root.insert(14)
 root.insert(3)
+root.insert(10)
+root.insert(19)
+root.insert(31)
 root.print_tree()
-print(root.contains_given_item(3))
+print(root.inorder_traversal(root))

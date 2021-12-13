@@ -57,6 +57,18 @@ class Node:
             res = res + self.inorder_traversal(root.right)
         return res
 
+
+   # Preorder traversal
+   # Root -> Left ->Right
+
+    def PreorderTraversal(self, root):
+        res = []
+        if root:
+            res.append(root.data)
+            res = res + self.PreorderTraversal(root.left)
+            res = res + self.PreorderTraversal(root.right)
+        return res
+
 root = Node(12)
 root.insert(7)
 root.insert(14)
@@ -66,3 +78,4 @@ root.insert(19)
 root.insert(31)
 root.print_tree()
 print(root.inorder_traversal(root))
+print(root.PreorderTraversal(root))

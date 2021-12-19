@@ -4,7 +4,7 @@ def pair_sum(list, target):
     time complexity: o(n)
     '''
     pairs = []  # for storing the list of pairs that sums up to k
-    seen = set()  # for storing the elements of the list which are alredy seened
+    seen = set()  # for storing the elements of the list which are alredy seen
 
     for num in list:
 

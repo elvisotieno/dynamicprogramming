@@ -24,3 +24,4 @@ def grocery_store(A):
 A=[1,0,1,0,1,0,0,1,0,1,0,0,0]
 minimum = grocery_store(A)
 print(minimum)
+

@@ -1,45 +1,9 @@
-#So to summarize, any dp problem (once we figure out it is dp problem),
-# the rows represent the elements and columns are the selection criteria (cumulative of elements) for the elements.
-# And to figure out if it is dp problem:
 
 
-# 1.(A) 0/1 Knapsack/backpack problem
-# We know its a dynamic problem, because we are presented with elemenets to choose from,
-# and we are expected to choose a subset that gives the maximum value without exceeding our capacity
-# Use a 2D list to  construct our dp table:
-# rows represent the elements(forms outer for loop)
-# columns are the selection criteria (inner for loop) for the elements
-# Once we populate our 2D list(matrix) we traceback and pick the elements that contribute to the maximum value
 
-def elements_with_max_value(weight,value, capacity):
-    N = len(weight)
-    dp = [[0 for x in range(capacity + 1)] for x in range(N)]
-    columns= capacity +1
 
-    for row in range(N):
-        given_weight=weight[row]
 
-        for col in range(columns):
-            total_weight= col
 
-            if total_weight==0 or given_weight == 0:
-                dp[row][col]=0
-
-            elif row ==0 and total_weight >= given_weight:
-                dp[row][col] = value[0]
-
-            elif row > 0 and total_weight >= given_weight:
-                dp[row][col] = max(value[row] + dp[row - 1][total_weight - given_weight], dp[row - 1][col])
-
-            elif row>0 and total_weight < given_weight:
-                dp[row][col] = dp[row - 1][col]
-
-    max_value= dp[N-1][capacity]
-    return max_value, dp
-weight=[1,3,4,5]
-value =[1,4,5,7]
-capacity= 7
-#print(elements_with_max_value(weight,value,capacity))
 
 
 #Extended Knapsack Problem

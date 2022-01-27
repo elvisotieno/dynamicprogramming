@@ -91,8 +91,8 @@ conn.commit()
 #Deleting Items
 cursor.execute("""
 DELETE FROM parts
-WHERE car_id<>:car_id AND part_id=:part_id""",
-               {'car_id':part1.car_id, 'part_id':part2.id,})
+WHERE car_id<>:car_id """,
+               {'car_id':car1.id})
 
 conn.commit()
 

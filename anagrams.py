@@ -14,19 +14,11 @@ def get_all_substrings(s):
 
 
 def check_for_anagrams(string1, string2):
-    hist = {}
-    for i in range(len(string1)):
-        char= string1[i]
-        if hist[char]:
-            hist[char] += 1
-        else:
-            hist[char] = 1
-
-    for j in range(len(string2)):
-        char = string2[j]
-        if hist[char]:
-            hist[char] -= 1
-        else:
+    hist1 = Counter(string1)
+    string2=list(string2)
+    hist1.subtract(string2)
+    for val in hist1.values():
+        if val:
             return False
     return True
 

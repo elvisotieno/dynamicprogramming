@@ -7,7 +7,6 @@ def best_to_sell_buy_stock(A):
     L = 0
     R = 1
     max_profit = 0
-    current_profit = 0
 
     while R < n:
         if A[L] >  A[R]:

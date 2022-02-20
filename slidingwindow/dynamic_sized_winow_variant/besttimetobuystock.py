@@ -4,20 +4,18 @@
 
 def best_to_sell_buy_stock(A):
     n = len(A)
-    L = 0
-    R = 1
+    start = 0
     max_profit = 0
-
-    while R < n:
-        if A[L] >  A[R]:
-            L = R
-            R +=1
+    for end in range(1,n):
+        current_profit = A[end]-A[start]
+        if current_profit >=0:
+            max_profit = max(current_profit,max_profit)
         else:
-            current_profit = A[R]-A[L]
-            R +=1
-            if current_profit > max_profit:
-                max_profit = current_profit
+            while current_profit < 0:
+                start += 1
+                current_profit = A[end]-A[start]
     return max_profit
 
-A=[7,6,4,3,1]
+
+A=[7,1,4,6,3]
 print(best_to_sell_buy_stock(A))
